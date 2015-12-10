@@ -11,6 +11,7 @@ class ShoppingListsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @proportions = @recipe.proportions
     @shopping_list_view_object = ShoppingListViewObject.new(@recipe, @proportions)
+    # @proportion_list_view_object = ProportionViewObject.new(@recipe, @proportions)
     render 'shopping_list/show'
   end
 end

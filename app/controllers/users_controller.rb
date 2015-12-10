@@ -7,7 +7,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    binding.pry
     if @user.save
       set_session(@user)
       UserMailer.welcome_email(@user).deliver_now
