@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   post '/recipes/new' => 'recipes#create'
   resources :users
-  resources :recipes
+  resources :recipes do
+    resources :shopping_lists
+  end
 
   get 'admin/dashboard' => 'admins#dashboard'
   get 'admin/most_viewed' => 'admins#most_viewed'
@@ -19,6 +21,7 @@ Rails.application.routes.draw do
   # post '/recipe/:id/favorites' => 'favorites#favorited?'
   get 'states/data' => 'states#data'
   get 'states/map' => 'states#map'
+  # resources :shopping_lists
   resources :favorites, only: [:create, :update, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.

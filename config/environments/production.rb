@@ -10,18 +10,18 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-    config.action_mailer.delivery_method = :smtp
-    config.action_mailer.raise_delivery_errors = true
-    config.action_mailer.smtp_settings =  {
-      :address    => "smtp.gmail.com",
-      :port       => 587,
-      :domain     => 'localhost',
-      :user_name  => ENV["gmail_username"],
-      :password   => ENV["gmail_password"],
-      :authentication   => :login,
-      :enable_starttls_auto   => true
-      }
+ config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings =  {
+   :address        => "smtp.gmail.com",
+   :port       =>  587,
+   :domain       =>  'localhost',
+   :user_name      => ENV["gmail_username"],
+   :password     =>  ENV["gmail_password"],
+   :authentication   => 'plain',
+   :enable_starttls_auto   => true
+  }
   
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false

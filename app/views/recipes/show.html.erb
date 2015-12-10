@@ -5,6 +5,8 @@
       <% f.text_field :name %>
     <% end %>
 
+     <%= button_to "Get shopping list", recipe_shopping_lists_path(@recipe.id) %>
+
     <% if current_user.class == User %>
       <div class='favorites-js'>
       <%= render partial: 'favorites/favorite', locals: {recipe: @recipe, user: current_user} %>
