@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
    def welcome_email(user)
     binding.pry
     @user = user
-    @url  = 'http://www.getcookin.com'
+    @url  = 'get-cookin.herokuapp.com/'
     mail(to: @user.email, subject: "Let's get cookin', good lookin'!")
   end
 end
