@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      <h2>Here is your shopping list:</h2><br>
+    </p>
+
+    <h2>Shopping list for <%= @recipe.name %>!</h2>
+      <% view_object = ShoppingListViewObject.new(@recipe) %>
+      <% view_object.display.each do |item|%>
+      <li>
+        <%= item %>
+      </li>
+      <%end%>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+      
+    
+    
+    <p>Get Cookin'!</p>
+  </body>
+</html>

@@ -7,4 +7,9 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: "Let's get cookin', good lookin'!")
   end
 
+  def email_recipe(recipe, current_user)
+    @user = current_user
+    mail(to: @user.email, subject: "Your shopping list for #{recipe.name}")
+  end
+
 end
