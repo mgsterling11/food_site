@@ -6,3 +6,5 @@ languages:
 exclude_paths:
 - spec/**/*
 - vendor/**/*
+- public/assets/**/*
+- app/assets/stylesheets/bootstrap.css
