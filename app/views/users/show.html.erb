@@ -2,22 +2,42 @@
 <div class='page-view-container'>
 <div class='row-fluid'>
   <div class='span6'>
+    <ul class='photo-grid'>
     <h2>My Recipes:</h2>
-    <% @user.recipes.each do |recipe | %>
-      <ul class='photo-grid'>
+    <% @user.recipes.each do |recipe | %>      
       <% recipe_view_object = RecipeViewObject.new(recipe) %>
-      <div class="inline-block"><%= link_to recipe.name, recipe_path(recipe)%></div>
-       <%= image_tag(recipe_view_object.image_url, style: "width:152px;height:114px;", alt: recipe_view_object.image_alt)%>
-    <% end %>
-      </ul>
+      <li class="<%= recipe_view_object.categories_class%>" >
+        <a href="<%=recipe_path(recipe)%>">
+          <figure>
+            <%= image_tag(recipe_view_object.image_url, :title => recipe_view_object.image_alt, class: 'img-polaroid', alt: recipe_view_object.image_alt)%>
+            <figcaption>
+              <p>
+                <%=recipe_view_object.image_alt%>
+              </p>
+            </figcaption>
+          </figure>
+        </a>
+      </li>
+      <%end%>    
+    </ul>
   </div>
   <div class='span6'>
+    <ul class='photo-grid'>
     <h2>My Favorites:</h2>
     <% @user.favorites.each do |favorite | %>
-    <ul class='photo-grid'>
       <% recipe_view_object = RecipeViewObject.new(favorite.recipe) %>
-      <div class="inline-block"><%= link_to favorite.recipe.name, recipe_path(favorite.recipe)%></div>
-       <%= image_tag(recipe_view_object.image_url, style: "width:152px;height:114px;", alt: recipe_view_object.image_alt)%>
+      <li class="<%= recipe_view_object.categories_class%>" >
+        <a href="<%=recipe_path(favorite.recipe)%>">
+          <figure>
+            <%= image_tag(recipe_view_object.image_url, :title => recipe_view_object.image_alt, class: 'img-polaroid', alt: recipe_view_object.image_alt)%>
+            <figcaption>
+              <p>
+                <%=recipe_view_object.image_alt%>
+              </p>
+            </figcaption>
+          </figure>
+        </a>
+      </li>
     <% end %>
     </ul>
   </div>
