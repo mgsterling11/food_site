@@ -1,17 +1,14 @@
 class ShoppingListViewObject
-  attr_reader :proportions, :recipe
+  attr_reader :proportions, :recipe, :ingredients, :units, :quantities
 
-  def initialize(recipe, proportions)
-    ingredients = list_ingredients(recipe.ingredients)
-    units = list_units(recipe.proportions)
-    quantities = quantity_conversion(recipe.proportions)
-    binding.pry
-    @line_items = display(quantities, units, ingredients)
-    binding.pry
+  def initialize(recipe)
+    @ingredients = list_ingredients(recipe.ingredients)
+    @units = list_units(recipe.proportions)
+    @quantities = quantity_conversion(recipe.proportions)
   end
 
   def list_ingredients(ingredients)
-    @ingredients = ingredients.map { |ingredient| Ingredient.find (ingredient.id) }
+    ingredients.map { |ingredient| Ingredient.find (ingredient.id) }
   end
 
   def list_units(proportions)
@@ -37,11 +34,11 @@ class ShoppingListViewObject
     end
   end
 
-  def display(quantities, units, ingredients)
+  def display
     line_items = []
     x = 0
     while x < ingredients.length
-      line_items.push("#{quantities[x]} #{units[x]} #{ingredients[x].name}")
+      line_items.push("#{@quantities[x]} #{@units[x]} #{@ingredients[x].name}")
       x += 1
     end
     line_items

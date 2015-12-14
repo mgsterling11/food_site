@@ -8,17 +8,8 @@ class ShoppingListsController < ApplicationController
   end
 
   def create
-    recipe = Recipe.find(params[:recipe_id])
-    proportions = @recipe.proportions
-    @shopping_list_view_object = ShoppingListViewObject.new(recipe)
-    # @proportion_list_view_object = ProportionViewObject.new(@recipe, @proportions)
+    @recipe = Recipe.find(params[:recipe_id])
+    @shopping_list_view_object = ShoppingListViewObject.new(@recipe)
     render 'shopping_list/show'
   end
 end
-
-
-# id: 55,
-# unit_id: 5,
-# ingredient_id: 118,
-# quantity: 1.0,
-# recipe_id: 4,
