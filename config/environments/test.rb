@@ -12,19 +12,18 @@ Rails.application.configure do
   # preloads Rails for running tests, you may have to set it to true.
   config.eager_load = false
 
-
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-    config.action_mailer.delivery_method = :smtp
-    config.action_mailer.raise_delivery_errors = true
-    config.action_mailer.smtp_settings =  {
-      :address    => "smtp.gmail.com",
-      :port       => 587,
-      :domain     => 'localhost',
-      :user_name  => ENV["gmail_username"],
-      :password   => ENV["gmail_password"],
-      :authentication   => :login,
-      :enable_starttls_auto   => true
-      }
+ config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings =  {
+   :address        => "smtp.gmail.com",
+   :port       =>  587,
+   :domain       =>  'localhost',
+   :user_name      => ENV["gmail_username"],
+   :password     =>  ENV["gmail_password"],
+   :authentication   => 'plain',
+   :enable_starttls_auto   => true
+  }
   
   # Configure static file server for tests with Cache-Control for performance.
   config.serve_static_files   = true

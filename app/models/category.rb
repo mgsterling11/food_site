@@ -16,5 +16,4 @@ class Category < ActiveRecord::Base
   def self.top_categories(num)
     joins(:recipes).select('categories.*, count(recipes.id) as most_common_category').group('categories.id').order('most_common_category desc').limit(num)
   end
-
 end
