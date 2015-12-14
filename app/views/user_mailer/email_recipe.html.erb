@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+
+    <h2>Shopping list for <%= @recipe.name %></h2>
+
+    <% @proportions.each do |proportion| %>
+      <div class='proportion-js'>
+        <%= render partial: 'proportions/proportion', locals: {proportion: proportion} %>      
+      </div>
+    <%end%>
+    <br>
+    <br>
+        
+    <p>Get Cookin'!</p>
+  </body>
+</html>

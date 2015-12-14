@@ -23,6 +23,7 @@ Rails.application.configure do
       :authentication   => :login,
       :enable_starttls_auto   => true
       }
+
   
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
