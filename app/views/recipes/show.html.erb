@@ -47,6 +47,9 @@
     <br>
     <br>
     <% if @recipe.user %>
+      <% if @recipe.image_url == nil %>
+        <h6>Photo supplied by FreeFOODPhotos</h6>
+      <% end %>
       <% if current_user == @recipe.user %>
         <%= button_to "Delete recipe", recipe_path(recipe: @recipe), method: :delete%>
       <% end %>
