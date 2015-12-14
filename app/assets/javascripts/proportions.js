@@ -7,8 +7,10 @@ $(document).on('click', '.add-proportion', function(event){
     var html_to_clone = $('.proportions-list').find('input:text').slice(0,3)
     var html = $(html_to_clone).clone();
     html.each(function(index, proportion_piece) {
-      proportion_piece_remove_val = $(proportion_piece).val("");
-      proportion_piece = $(proportion_piece_remove_val).attr('value', "");
+      proportion_piece = $(proportion_piece).val("");
+      if ($(proportion_piece).attr('value')){
+        proportion_piece = $(proportion_piece).attr('value', "");
+      };
       new_proportion_piece = proportion_piece[0].outerHTML.replace(/\d+/g, value);   
       $('.proportions-list').append($(new_proportion_piece));
     });
