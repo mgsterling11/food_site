@@ -12,7 +12,9 @@
       <%= render partial: 'favorites/favorite', locals: {recipe: @recipe, user: current_user} %>
       </div>
     <% end %>
-
+    <% if flash[:notice] %>
+      <div class="notice"><center><h4><%= flash[:notice] %></h4></center></div>
+    <% end %>
     <h3><%= @recipe_view_object.list %></h3>
     <h4><%= @recipe_view_object.created_by %></h4>
     <%= image_tag(@recipe_view_object.image_url, class: 'img-polaroid', style: "width:304px;height:228px", alt: @recipe_view_object.image_alt)%>

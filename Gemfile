@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rails_12factor'
 gem "therubyracer"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem "font-awesome-rails"
@@ -54,6 +55,11 @@ group :development, :test do
   gem "capybara"
   gem "rack_session_access"
   gem "capybara-webkit"
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor' 
 end
 
 group :development do

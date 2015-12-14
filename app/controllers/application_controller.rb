@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   private
      def admin_required
       if !current_user.admin
-        redirect_to recipes_path, :notice => "You are not authorized to visit that page"
+        redirect_to recipes_path
       end
     end
 

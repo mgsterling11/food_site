@@ -24,14 +24,22 @@
                     <li><a href="/admin/most_favorited">Most Favorited</a></li>
                     <li><a href="/admin/most_viewed">Most Viewed</a></li>
                     <li><a href="/admin/top_ingredients">Top Ingredients</a></li>
+                    <li data-no-turbolink><%= link_to "Seasonal Ingredients", states_map_path %></li>
                   </ul>
                 </li>
               <li><%= link_to "Log Out", logout_path %></li>
           <% elsif current_user.class == User %>
-              <li><%= link_to 'My Profile', user_path(current_user) %></li>
-              <li><a href='/recipes/new'>New Recipe</a></li>
+              <li data-no-turbolink><%= link_to "Seasonal Ingredients", states_map_path %></li>
+              <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to 'My Profile', user_path(current_user) %></li>
+                    <li><a href='/recipes/new'>New Recipe</a></li>
+                  </ul>
+                </li>
               <li><%= link_to "Log Out", logout_path %></li>
           <% else %>
+              <li data-no-turbolink><%= link_to "Seasonal Ingredients", states_map_path %></li>
               <li><%= link_to 'Create Account', new_user_path %></li>
               <li><%= link_to "Log In", login_path %></li>
           <% end %>

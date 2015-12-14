@@ -2,5 +2,7 @@
   <% state_season_view_object = StateSeasonViewObject.new(state, ingredients) %>
   <h3><%= state_season_view_object.display_title %></h3>
   <h5>Ingredients</h5>
-  <%= state_season_view_object.list_ingredients %>
+  <% ingredients.each do |ingredient| %>
+    <%= link_to ingredient.name, "/searches?keyword=#{ingredient.name}" %> |
+  <% end %>
 </div>

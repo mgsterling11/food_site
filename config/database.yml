@@ -21,4 +21,5 @@ production:
   pool: 5
   username: 
   password:
+  url: <%= ENV["DATABASE_URL"] %>
 
