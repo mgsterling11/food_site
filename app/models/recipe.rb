@@ -43,17 +43,6 @@ class Recipe < ActiveRecord::Base
     joins(:ingredients).group('ingredients.name').order('count_id desc').count('id')
   end
 
-  def self.most_used_ingredients
-    ascending_array = Recipe.num_of_ingredient.sort_by do |ingredient, count|
-      count
-    end
-    top_ten = ascending_array.reverse[0..9]
-    top_ten.each_with_object([]) do |ingredient, array|
-      hash = {name: ingredient[0], count: ingredient[1]}
-      array.push(hash)
-    end
-  end
-
   def self.most_viewed(num)
     select('recipes.*').order('view_count desc').limit(num)
   end

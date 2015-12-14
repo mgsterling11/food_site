@@ -34,14 +34,14 @@ class ProportionsController < ApplicationController
     proportion = Proportion.find(params[:id])
     @recipe = Recipe.find(params[:recipe_id])
     proportions = @recipe.proportions
-      if @recipe.user_id == current_user.id 
-        proportion.destroy
-        html_string = render_to_string "recipes/_proportions_show", locals: {proportions: proportions}, layout: false
-        render json: {template: html_string, action: 'destroy'}
-      else
-        html_string = render_to_string "proportions/_proportion", locals: {proportion: proportion}, layout: false
-        render json: {template: html_string, action: 'update'}
-      end
+    if @recipe.user_id == current_user.id 
+      proportion.destroy
+      html_string = render_to_string "recipes/_proportions_show", locals: {proportions: proportions}, layout: false
+      render json: {template: html_string, action: 'destroy'}
+    else
+      html_string = render_to_string "proportions/_proportion", locals: {proportion: proportion}, layout: false
+      render json: {template: html_string, action: 'update'}
+    end
   end
 
 

@@ -5,7 +5,10 @@ class StateSeason < ActiveRecord::Base
   has_many :ingredients, through: :state_season_ingredients
 
   def self.this_months_ingredients(seasons)
-    seasons.map {|season| season.ingredients }
+    seasons.map {|season| season.ingredients }.flatten
+    # seasons.each_with_object([]) do |season, array|
+    #   array << season.ingredients
+    # end.flatten
   end
 
 end
