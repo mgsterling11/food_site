@@ -5,17 +5,15 @@
   <br><br>
 
   <div class='proportions-list'>
-    <div class='proportion-item' data-proportion-id='0'>
-      <%= f.fields_for :proportions do |proportion| %>
-          <%= proportion.text_field :quantity, class: "quantity-input-js", placeholder: 'Quantity' %>
-          <%= proportion.fields_for :unit do |field| %>
-            <%= field.text_field :name, placeholder: "Unit" %>
-          <% end %>
-          <%= proportion.fields_for :ingredient do |field| %>
-            <%= field.text_field :name, placeholder: "Ingredient" %>
-          <% end %>
-      <%end%>
-    </div>
+    <%= f.fields_for :proportions do |proportion| %>
+        <%= proportion.text_field :quantity, class: "quantity-input-js", placeholder: 'Quantity' %>
+        <%= proportion.fields_for :unit do |field| %>
+          <%= field.text_field :name, placeholder: "Unit" %>
+        <% end %>
+        <%= proportion.fields_for :ingredient do |field| %>
+          <%= field.text_field :name, placeholder: "Ingredient" %>
+        <% end %>
+    <%end%>
   </div>
 
   <div>
