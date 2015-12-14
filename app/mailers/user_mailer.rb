@@ -10,6 +10,8 @@ class UserMailer < ApplicationMailer
   def email_recipe(recipe, current_user)
     @user = current_user
     @recipe = recipe
+    @proportions = recipe.proportions
+    binding.pry
     mail(to: @user.email, subject: "Your shopping list for #{recipe.name}")
   end
 

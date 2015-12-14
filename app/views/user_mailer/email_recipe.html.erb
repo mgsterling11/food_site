@@ -5,22 +5,16 @@
   </head>
   <body>
 
-
     <h2>Shopping list for <%= @recipe.name %></h2>
-      <% view_object = ShoppingListViewObject.new(@recipe) %>
-      <% view_object.display.each do |item|%>
-      <li>
-        <%= item %>
-      </li>
-      <%end%>
+
+    <% @proportions.each do |proportion| %>
+      <div class='proportion-js'>
+        <%= render partial: 'proportions/proportion', locals: {proportion: proportion} %>      
+      </div>
+    <%end%>
     <br>
     <br>
-    <br>
-    <br>
-    
-      
-    
-    
+        
     <p>Get Cookin'!</p>
   </body>
 </html>

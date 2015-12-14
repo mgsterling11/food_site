@@ -5,7 +5,6 @@
       <% f.text_field :name %>
     <% end %>
 
-     <%= button_to "Get shopping list", recipe_shopping_lists_path(@recipe.id) %>
 
     <% if current_user.class == User %>
       <div class='favorites-js'>
@@ -41,14 +40,20 @@
 
     <div class='proportion-show-partial-js'><%= render partial: 'proportions_show', locals: {proportions: @proportions} %></div>
     <div class="step-show-partial-js"><%= render partial: 'steps_show', locals: {steps: @steps} %></div>
+
+    <% if current_user.class == User %>
+      <%= link_to "Email shopping list", recipe_shopping_list_path(@recipe, current_user) %>
+    <% end %>
+    <br>
+    <br>
+    <% if @recipe.user %>
+      <% if current_user == @recipe.user %>
+        <%= button_to "Delete recipe", recipe_path(recipe: @recipe), method: :delete%>
+      <% end %>
+    <% end %>
     </div>
   </div>
 
-<% if @recipe.user %>
-  <% if current_user == @recipe.user %>
-    <%= button_to "Delete recipe", recipe_path(recipe: @recipe), method: :delete%>
-  <% end %>
-<% end %>
 
 
 
