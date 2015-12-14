@@ -21,12 +21,10 @@ class ProportionsController < ApplicationController
       proportion.ingredient_id = Ingredient.find_or_create_by(proportion_update_params[:ingredient_attributes]).id
       proportion.unit_id = Unit.find_or_create_by(proportion_update_params[:unit_attributes]).id
       if proportion.save
-        html_string = render_to_string "proportions/_proportion", locals: {proportion: proportion}, layout: false
-        render json: {template: html_string, action: 'update'}
+        render_proportion_partial(proportion)
       end
     else
-      html_string = render_to_string "proportions/_proportion", locals: {proportion: proportion}, layout: false
-      render json: {template: html_string, action: 'update'}
+      render_proportion_partial(proportion)
     end
   end
 
@@ -39,8 +37,7 @@ class ProportionsController < ApplicationController
       html_string = render_to_string "recipes/_proportions_show", locals: {proportions: proportions}, layout: false
       render json: {template: html_string, action: 'destroy'}
     else
-      html_string = render_to_string "proportions/_proportion", locals: {proportion: proportion}, layout: false
-      render json: {template: html_string, action: 'update'}
+      render_proportion_partial(proportion)
     end
   end
 
@@ -53,6 +50,11 @@ class ProportionsController < ApplicationController
   def proportion_update_params
     params.require(:proportion).permit(:id, :quantity, :recipe_id, :ingredient_ids => [], 
       :ingredient_attributes =>[:name], :unit_ids => [], :unit_attributes => [:name])
+  end
+
+  def render_proportion_partial(proportion)
+    html_string = render_to_string "proportions/_proportion", locals: {proportion: proportion}, layout: false
+    render json: {template: html_string, action: 'update'}
   end
 
 end
