@@ -9,7 +9,7 @@
       <li class="<%= recipe_view_object.categories_class%>" >
         <a href="<%=recipe_path(recipe)%>">
           <figure>
-            <%= image_tag(recipe_view_object.image_url, :title => recipe_view_object.image_alt, class: 'img-polaroid', alt: recipe_view_object.image_alt)%>
+            <%= image_tag(recipe_view_object.image_url, :title => recipe_view_object.image_alt, alt: recipe_view_object.image_alt)%>
             <figcaption>
               <p>
                 <%=recipe_view_object.image_alt%>
@@ -29,7 +29,7 @@
       <li class="<%= recipe_view_object.categories_class%>" >
         <a href="<%=recipe_path(favorite.recipe)%>">
           <figure>
-            <%= image_tag(recipe_view_object.image_url, :title => recipe_view_object.image_alt, class: 'img-polaroid', alt: recipe_view_object.image_alt)%>
+            <%= image_tag(recipe_view_object.image_url, :title => recipe_view_object.image_alt, alt: recipe_view_object.image_alt)%>
             <figcaption>
               <p>
                 <%=recipe_view_object.image_alt%>
