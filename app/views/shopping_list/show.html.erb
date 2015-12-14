@@ -6,7 +6,7 @@
     <h4><%#= @recipe_view_object.created_by %></h4>
     <%#= image_tag(@recipe_view_object.image_url, class: 'img-polaroid', style: "width:304px;height:228px", alt: @recipe_view_object.image_alt)%>
 
-
+<%binding.pry%>
   <% @shopping_list_view_object.list_ingredients_and_quantities.each do |ingredient| %>
   <ul>
     <%= ingredient.name %>
@@ -15,11 +15,11 @@
 
 
 
-  <% @proportions.each do |proportion| %>
+  <%# @proportions.each do |proportion| %>
     <ul>
-      <%= ProportionViewObject.new(proportion) %>
+      <%#= ProportionViewObject.new(proportion) %>
     </ul>
-  <% end %>
+  <%# end %>
 
 
 
